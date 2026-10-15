@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:title" content="Prometheus, obrt za proizvodnju i usluge">
+<meta property="og:description" content="Personalizirane sportske medalje, postprodukcija videa, dizajn, lektura, web i 3D rješenja iz Požege.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#24272A">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Prometheus · obrt za proizvodnju i usluge, Požega</title>
+<meta name="description" content="Prometheus, obrt za proizvodnju i usluge iz Požege: personalizirane sportske medalje, postprodukcija videa, dizajn i priprema za tisak, lektura, web i 3D rješenja.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: uokvireni hero kao pločica obrta (antracit + zlato), četiri specijalizacije, šest djelatnosti po NKD-u, tri skupine klijenata kao poveznica, proces, o obrtu, kontakt */
+:root{
+  --bg:#F3F2EE; --surface:#E9E7E1; --ink:#24272A; --muted:#5D5950; --line:#D3CEC3; --gold:#7A6844;
+  --g1:#4E453A; --g2:#7E6F52; --g3:#A8956B;
+  --caps:"Cinzel", "Copperplate", "Copperplate Gothic Bold", Georgia, serif;
+  --display:"Cormorant Garamond", "Garamond", Georgia, serif;
+  --body:"Figtree", "Avenir Next", Avenir, system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --max:1140px;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --bg:#1C1F22; --surface:#24272A; --ink:#ECE6D6; --muted:#A79F8D; --line:#383B3E; --gold:#CDB98A; --g1:#8A7A5C; --g2:#BFAE85; --g3:#E6D6A8; color-scheme:dark } }
+:root[data-theme="dark"]{ --bg:#1C1F22; --surface:#24272A; --ink:#ECE6D6; --muted:#A79F8D; --line:#383B3E; --gold:#CDB98A; --g1:#8A7A5C; --g2:#BFAE85; --g3:#E6D6A8; color-scheme:dark }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{background:var(--bg); color:var(--ink); font-family:var(--body); font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--max); margin:0 auto; padding-left:max(20px, env(safe-area-inset-left, 0px)); padding-right:max(20px, env(safe-area-inset-right, 0px))}
+a{color:inherit}
+a:focus-visible, button:focus-visible{outline:2px solid var(--gold); outline-offset:3px}
+.caps{font-family:var(--caps); font-weight:600; font-size:12.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold)}
+h2{font-family:var(--display); font-weight:600; font-size:clamp(32px, 4.4vw, 48px); line-height:1.08; margin:10px 0 0; text-wrap:balance}
+.sec{padding-block:80px; border-top:1px solid var(--line); scroll-margin-top:64px}
+.sec-head{display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:16px 64px; align-items:end; margin-bottom:44px}
+.sec-head p{margin:0; color:var(--muted); max-width:56ch}
+@media (max-width:820px){ .sec{padding-block:60px} .sec-head{grid-template-columns:1fr} }
+
+/* header */
+header{position:sticky; top:env(safe-area-inset-top, 0px); z-index:10; background:color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
+.bar{display:flex; align-items:center; justify-content:space-between; gap:16px; padding-block:14px}
+.logo{height:26px; width:auto; display:block}
+nav{display:flex; gap:24px}
+nav a{font-size:14px; text-decoration:none; color:var(--muted)}
+nav a:hover{color:var(--ink)}
+@media (max-width:760px){ nav .opt{display:none} }
+
+/* hero as business plate */
+.hero{padding-block:40px 72px}
+.plate{position:relative; border:1px solid var(--gold); padding:clamp(36px, 7vw, 80px) clamp(20px, 6vw, 72px); text-align:center; background:var(--surface)}
+.plate::before{content:""; position:absolute; inset:8px; border:1px solid color-mix(in srgb, var(--gold) 40%, transparent); pointer-events:none}
+.torch{width:46px; height:auto; display:block; margin:0 auto 22px}
+h1{font-family:var(--display); font-weight:600; font-size:clamp(38px, 6.6vw, 76px); line-height:1.04; margin:16px auto 0; max-width:16ch; text-wrap:balance}
+.rule{display:flex; align-items:center; justify-content:center; gap:10px; margin:28px auto}
+.rule::before, .rule::after{content:""; height:1px; width:min(120px, 28vw); background:var(--gold)}
+.rule i{width:7px; height:7px; background:var(--gold); transform:rotate(45deg)}
+.lede{max-width:60ch; margin:0 auto; font-size:18.5px; color:var(--muted)}
+.cta{display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:34px}
+.btn{display:inline-flex; align-items:center; gap:10px; background:var(--ink); color:var(--bg); text-decoration:none; font-weight:500; font-size:15px; padding:13px 22px; border:1px solid var(--ink); cursor:pointer; font-family:var(--body)}
+.btn:hover{background:var(--gold); border-color:var(--gold)}
+.btn.ghost{background:transparent; color:var(--ink); border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--gold); color:var(--gold); background:transparent}
+
+/* specialisations */
+.spec{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0; border-top:1px solid var(--ink)}
+.spec article{padding:30px 32px 34px 0; border-bottom:1px solid var(--line); display:flex; flex-direction:column; gap:12px; min-width:0}
+.spec article:nth-child(even){padding-left:32px; padding-right:0; border-left:1px solid var(--line)}
+.spec h3{font-family:var(--display); font-weight:600; font-size:30px; line-height:1.1; margin:0}
+.spec p{margin:0; color:var(--muted)}
+.spec ul{margin:4px 0 0; padding:0; list-style:none; display:flex; flex-wrap:wrap; gap:8px}
+.spec li{font-size:13.5px; border:1px solid var(--line); padding:4px 10px}
+.tag{font-family:var(--mono); font-size:12px; color:var(--gold)}
+@media (max-width:760px){ .spec{grid-template-columns:1fr} .spec article, .spec article:nth-child(even){padding:26px 0; border-left:0} }
+
+/* clients: the link between areas */
+.clients{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px}
+.client{background:var(--surface); padding:28px 26px 30px; display:flex; flex-direction:column; gap:14px; min-width:0}
+.client h3{font-family:var(--display); font-weight:600; font-size:26px; margin:0; line-height:1.15}
+.client p{margin:0; color:var(--muted); font-size:15.5px}
+.client ol{list-style:none; margin:4px 0 0; padding:0; border-top:1px solid var(--line)}
+.client li{padding:10px 0; border-bottom:1px solid var(--line); font-size:15px; display:flex; justify-content:space-between; gap:12px}
+.client li span{font-family:var(--mono); font-size:11.5px; color:var(--gold); white-space:nowrap; padding-top:3px}
+@media (max-width:900px){ .clients{grid-template-columns:1fr} }
+
+
+/* portfolio */
+.medals{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.8fr) minmax(0,1fr); gap:28px; align-items:center; background:var(--surface); border:1px solid var(--line); padding:32px 28px; margin-bottom:24px}
+.medals figure{margin:0; min-width:0}
+.m-side{display:flex; flex-direction:column; align-items:center; gap:12px}
+.m-side img{width:100%; max-width:300px; height:auto; filter:drop-shadow(0 8px 12px rgba(0,0,0,.18))}
+.m-side figcaption{font-family:var(--caps); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); text-align:center}
+.m-center{display:flex; flex-direction:column; gap:16px; text-align:center}
+.m-center img{width:94%; max-width:282px; aspect-ratio:1/1; object-position:50% 50%; object-fit:cover; margin:0 auto; border:1px solid var(--gold); padding:6px; background:var(--bg)}
+.m-center p{margin:6px auto 0; max-width:34ch; font-family:var(--display); font-size:21px; line-height:1.35; color:var(--ink)}
+.works{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-top:1px solid var(--ink)}
+.work{display:flex; flex-direction:column; gap:8px; padding:22px 24px 24px 0; text-decoration:none; border-bottom:1px solid var(--line); min-width:0}
+.work + .work{padding-left:24px; border-left:1px solid var(--line)}
+.work h3{font-family:var(--display); font-size:24px; font-weight:600; margin:0; line-height:1.15}
+.work p{margin:0; color:var(--muted); font-size:15px}
+.work .go{margin-top:auto; padding-top:6px; font-size:14px; font-weight:500; color:var(--gold); word-break:break-word}
+a.work:hover h3{color:var(--gold)}
+.links{display:flex; flex-wrap:wrap; gap:18px}
+.links a{text-decoration:none}
+.links a:hover{text-decoration:underline}
+@media (max-width:820px){ .medals{grid-template-columns:1fr 1fr} .m-center{grid-column:1 / -1; order:-1} .works{grid-template-columns:1fr} .work, .work + .work{padding:20px 0; border-left:0} }
+
+/* activities by NKD */
+.acts{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-top:1px solid var(--line); border-left:1px solid var(--line)}
+.act{padding:26px 24px 28px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); min-width:0}
+.act .codes{font-family:var(--mono); font-size:12px; color:var(--gold); display:flex; flex-wrap:wrap; gap:4px 10px}
+.act h3{font-size:18px; font-weight:600; margin:10px 0 8px}
+.act p{margin:0; font-size:15px; color:var(--muted)}
+@media (max-width:900px){ .acts{grid-template-columns:1fr 1fr} }
+@media (max-width:560px){ .acts{grid-template-columns:1fr} }
+.src{margin-top:16px; font-size:13px; color:var(--muted)}
+
+/* process */
+.steps{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:28px; counter-reset:s; list-style:none; padding:0; margin:0}
+.steps li{border-top:1px solid var(--ink); padding-top:16px}
+.steps li::before{counter-increment:s; content:counter(s, upper-roman); font-family:var(--caps); font-size:14px; color:var(--gold)}
+.steps h3{font-size:18px; margin:6px 0; font-weight:600}
+.steps p{margin:0; color:var(--muted); font-size:15px}
+@media (max-width:820px){ .steps{grid-template-columns:1fr 1fr} }
+@media (max-width:480px){ .steps{grid-template-columns:1fr} }
+
+/* about */
+.about{display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:32px 64px}
+.about p{margin:0 0 16px; max-width:62ch}
+.facts{margin:0; display:grid; gap:0; border-top:1px solid var(--ink)}
+.facts div{display:grid; grid-template-columns:120px minmax(0,1fr); gap:14px; padding:12px 0; border-bottom:1px solid var(--line); font-size:15px}
+.facts dt{font-family:var(--caps); font-size:11.5px; letter-spacing:.14em; color:var(--muted); padding-top:3px}
+.facts dd{margin:0}
+@media (max-width:820px){ .about{grid-template-columns:1fr} }
+
+/* contact */
+.contact-grid{display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:32px 64px; align-items:start}
+.big{font-family:var(--display); font-weight:600; font-size:clamp(21px, 2.6vw, 28px); line-height:1.15; text-decoration:none; word-break:break-word; display:inline-block}
+.big:hover{color:var(--gold)}
+.row{display:flex; flex-wrap:wrap; gap:12px; margin-top:22px}
+@media (max-width:820px){ .contact-grid{grid-template-columns:1fr} }
+
+footer{border-top:1px solid var(--line); padding-block:28px 36px; font-size:13px; color:var(--muted)}
+footer .wrap{display:grid; gap:6px}
+footer b{font-weight:600; color:var(--ink)}
+.toast{position:fixed; left:50%; bottom:calc(24px + env(safe-area-inset-bottom, 0px)); transform:translateX(-50%); background:var(--ink); color:var(--bg); padding:10px 16px; font-size:14px}
+</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} body{margin:0} img{max-width:100%} [hidden]{display:none!important}</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a href="#top" aria-label="Prometheus, na vrh stranice"><svg class="logo" viewBox="0 0 228 31" role="img" aria-label="Prometheus"><defs><linearGradient id="lg" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="228" y2="0"><stop offset="0" stop-color="var(--g1)"/><stop offset=".55" stop-color="var(--g2)"/><stop offset="1" stop-color="var(--g3)"/></linearGradient></defs><g fill="url(#lg)"><g transform="translate(0,0.5) scale(0.5205) translate(-88.888,0)"><path d="M 98.043,9.251 C 96.241,12.774 91.260,15.650 90.625,23.996 L 90.625,23.996 C 89.989,32.342 101.116,38.741 101.116,38.741 L 101.116,38.741 C 101.116,38.741 95.553,31.229 97.566,25.943 L 97.566,25.943 C 99.579,20.657 100.268,22.141 100.534,15.557 L 100.534,15.557 C 108.058,19.637 104.164,29.565 104.164,29.565 L 104.164,29.565 C 104.164,29.565 107.475,29.282 108.747,25.758 L 108.747,25.758 C 109.807,29.931 105.885,38.185 105.885,38.185 L 105.885,38.185 C 105.885,38.185 113.728,32.250 114.258,22.327 L 114.258,22.327 C 114.788,12.404 110.973,8.138 110.973,8.138 L 110.973,8.138 C 110.973,8.138 109.701,15.928 107.158,15.093 L 107.158,15.093 C 107.051,3.223 99.209,-0.000 99.209,-0.000 L 99.209,-0.000 C 99.209,-0.000 99.845,5.726 98.043,9.251"/><path d="M 89.406,41.301 C 89.406,43.069 90.063,44.503 91.831,44.503 L 113.076,44.503 C 114.843,44.503 115.501,43.069 115.501,41.301 C 115.501,40.650 115.411,40.044 115.209,39.539 L 89.578,39.539 C 89.443,40.044 89.406,40.650 89.406,41.301"/><path d="M 89.613,45.301 C 89.161,45.869 88.888,46.587 88.888,47.370 L 88.888,47.370 C 88.888,49.208 90.378,50.699 92.216,50.699 L 92.216,50.699 L 112.690,50.699 C 114.528,50.699 116.018,49.208 116.018,47.370 L 116.018,47.370 C 116.018,46.587 115.746,45.869 115.293,45.301 L 115.293,45.301 Z"/><path d="M 110.796,51.496 L 94.111,51.496 L 95.275,57.640 L 109.632,57.640 Z"/></g><g transform="translate(22,-56.417)"><path d="M 0.000,66.066 L 0.000,66.532 C 0.350,66.629 0.592,66.755 0.728,66.910 L 0.728,66.910 C 0.864,67.066 0.932,67.294 0.932,67.595 L 0.932,67.595 L 0.932,84.426 C 0.932,84.717 0.864,84.941 0.728,85.096 L 0.728,85.096 C 0.592,85.251 0.350,85.378 0.000,85.475 L 0.000,85.475 L 0.000,85.941 L 6.203,85.941 L 6.203,85.475 C 5.863,85.387 5.623,85.264 5.482,85.103 L 5.482,85.103 C 5.342,84.944 5.271,84.717 5.271,84.426 L 5.271,84.426 L 5.271,77.874 L 12.406,77.874 C 14.240,77.874 15.669,77.692 16.693,77.328 L 16.693,77.328 C 17.718,76.964 18.541,76.351 19.161,75.486 L 19.161,75.486 C 19.880,74.477 20.239,73.302 20.239,71.962 L 20.239,71.962 C 20.239,71.031 20.049,70.148 19.671,69.313 L 19.671,69.313 C 19.293,68.507 18.768,67.856 18.099,67.362 L 18.099,67.362 C 17.448,66.886 16.699,66.551 15.849,66.357 L 15.849,66.357 C 14.999,66.163 13.852,66.066 12.406,66.066 L 12.406,66.066 Z M 5.271,69.342 L 11.896,69.342 C 13.226,69.342 14.153,69.483 14.677,69.764 L 14.677,69.764 C 15.017,69.949 15.290,70.243 15.500,70.645 L 15.500,70.645 C 15.708,71.048 15.813,71.488 15.813,71.962 L 15.813,71.962 C 15.813,72.448 15.708,72.892 15.500,73.295 L 15.500,73.295 C 15.290,73.698 15.017,73.992 14.677,74.176 L 14.677,74.176 C 14.143,74.457 13.216,74.598 11.896,74.598 L 11.896,74.598 L 5.271,74.598 Z"/><path d="M 22.452,69.633 L 22.452,70.041 C 22.801,70.148 23.044,70.279 23.180,70.434 L 23.180,70.434 C 23.316,70.589 23.384,70.817 23.384,71.118 L 23.384,71.118 L 23.384,84.455 C 23.384,84.756 23.313,84.989 23.173,85.154 L 23.173,85.154 C 23.032,85.319 22.792,85.446 22.452,85.533 L 22.452,85.533 L 22.452,85.941 L 28.218,85.941 L 28.218,85.533 C 27.869,85.427 27.626,85.293 27.490,85.133 L 27.490,85.133 C 27.354,84.974 27.286,84.744 27.286,84.443 L 27.286,84.443 L 27.286,79.243 L 31.192,79.243 L 34.450,83.906 C 34.761,84.342 34.917,84.666 34.917,84.879 L 34.917,84.879 C 34.917,85.179 34.664,85.398 34.158,85.533 L 34.158,85.533 L 34.158,85.941 L 41.016,85.941 L 41.016,85.533 C 40.589,85.455 40.208,85.274 39.873,84.988 L 39.873,84.988 C 39.538,84.702 39.090,84.163 38.527,83.369 L 38.527,83.369 L 35.440,79.068 C 37.051,78.738 38.219,78.202 38.942,77.459 L 38.942,77.459 C 39.665,76.717 40.026,75.686 40.026,74.365 L 40.026,74.365 C 40.026,72.628 39.438,71.375 38.264,70.609 L 38.264,70.609 C 37.691,70.240 37.041,69.985 36.314,69.844 L 36.314,69.844 C 35.585,69.704 34.527,69.633 33.139,69.633 L 33.139,69.633 Z M 27.286,72.589 L 33.168,72.589 C 34.246,72.589 34.996,72.725 35.418,72.997 L 35.418,72.997 C 35.840,73.268 36.051,73.749 36.051,74.438 L 36.051,74.438 C 36.051,75.215 35.751,75.734 35.149,75.996 L 35.149,75.996 C 34.721,76.190 34.062,76.287 33.168,76.287 L 33.168,76.287 L 27.286,76.287 Z"/><path d="M 45.314,71.264 C 43.235,72.827 42.196,75.001 42.196,77.787 L 42.196,77.787 C 42.196,80.544 43.235,82.718 45.314,84.310 L 45.314,84.310 C 47.024,85.630 49.175,86.290 51.769,86.290 L 51.769,86.290 C 54.362,86.290 56.514,85.630 58.225,84.310 L 58.225,84.310 C 60.293,82.718 61.328,80.587 61.328,77.918 L 61.328,77.918 C 61.328,75.074 60.293,72.856 58.225,71.264 L 58.225,71.264 C 56.495,69.944 54.333,69.284 51.740,69.284 L 51.740,69.284 C 49.175,69.313 47.033,69.973 45.314,71.264 M 47.643,81.572 C 46.662,80.563 46.171,79.301 46.171,77.787 L 46.171,77.787 C 46.171,76.263 46.662,74.996 47.643,73.987 L 47.643,73.987 C 48.703,72.909 50.073,72.371 51.755,72.371 L 51.755,72.371 C 53.436,72.390 54.811,72.929 55.881,73.987 L 55.881,73.987 C 56.862,74.967 57.353,76.258 57.353,77.859 L 57.353,77.859 C 57.353,79.335 56.862,80.573 55.881,81.572 L 55.881,81.572 C 54.821,82.659 53.450,83.203 51.769,83.203 L 51.769,83.203 C 50.078,83.203 48.703,82.659 47.643,81.572"/><path d="M 78.667,69.633 L 78.667,70.041 C 79.142,70.148 79.380,70.400 79.380,70.798 L 79.380,70.798 C 79.380,71.118 79.147,71.662 78.681,72.428 L 78.681,72.428 L 74.585,79.704 L 70.518,72.327 C 70.188,71.754 70.022,71.269 70.022,70.871 L 70.022,70.871 C 70.022,70.463 70.251,70.187 70.708,70.041 L 70.708,70.041 L 70.708,69.633 L 63.818,69.633 L 63.818,70.041 C 64.167,70.138 64.410,70.266 64.546,70.427 L 64.546,70.427 C 64.682,70.587 64.750,70.817 64.750,71.118 L 64.750,71.118 L 64.750,84.455 C 64.750,84.756 64.679,84.989 64.539,85.154 L 64.539,85.154 C 64.398,85.319 64.158,85.446 63.818,85.533 L 63.818,85.533 L 63.818,85.941 L 69.234,85.941 L 69.234,85.533 C 68.884,85.426 68.642,85.293 68.506,85.132 L 68.506,85.132 C 68.370,84.973 68.302,84.742 68.302,84.441 L 68.302,84.441 L 68.302,75.213 L 74.250,85.941 L 80.548,75.213 L 80.548,84.454 C 80.548,84.755 80.477,84.988 80.336,85.153 L 80.336,85.153 C 80.196,85.319 79.956,85.446 79.616,85.533 L 79.616,85.533 L 79.616,85.941 L 85.381,85.941 L 85.381,85.533 C 85.032,85.436 84.790,85.305 84.654,85.140 L 84.654,85.140 C 84.517,84.975 84.450,84.742 84.450,84.442 L 84.450,84.442 L 84.450,71.118 C 84.450,70.816 84.517,70.586 84.654,70.426 L 84.654,70.426 C 84.790,70.266 85.032,70.138 85.381,70.041 L 85.381,70.041 L 85.381,69.633 Z"/><path d="M 104.062,68.701 C 103.965,69.051 103.837,69.293 103.676,69.429 L 103.676,69.429 C 103.516,69.565 103.281,69.633 102.970,69.633 L 102.970,69.633 L 88.235,69.633 L 88.235,70.041 C 88.585,70.148 88.827,70.279 88.963,70.434 L 88.963,70.434 C 89.099,70.589 89.167,70.817 89.167,71.118 L 89.167,71.118 L 89.167,84.455 C 89.167,84.756 89.096,84.989 88.956,85.154 L 88.956,85.154 C 88.816,85.319 88.575,85.446 88.235,85.533 L 88.235,85.533 L 88.235,85.941 L 103.421,85.941 C 103.722,85.941 103.955,86.010 104.121,86.152 L 104.121,86.152 C 104.285,86.292 104.412,86.533 104.499,86.872 L 104.499,86.872 L 104.907,86.872 L 104.907,82.053 L 104.499,82.053 C 104.402,82.407 104.273,82.650 104.113,82.784 L 104.113,82.784 C 103.953,82.918 103.722,82.985 103.421,82.985 L 103.421,82.985 L 93.069,82.985 L 93.069,79.010 L 99.214,79.010 C 99.525,79.010 99.760,79.079 99.920,79.217 L 99.920,79.217 C 100.080,79.356 100.209,79.597 100.306,79.942 L 100.306,79.942 L 100.699,79.942 L 100.699,75.239 L 100.306,75.239 C 100.198,75.588 100.065,75.831 99.905,75.967 L 99.905,75.967 C 99.745,76.103 99.514,76.171 99.214,76.171 L 99.214,76.171 L 93.069,76.171 L 93.069,72.589 L 102.970,72.589 C 103.281,72.589 103.516,72.656 103.676,72.789 L 103.676,72.789 C 103.837,72.924 103.965,73.168 104.062,73.521 L 104.062,73.521 L 104.455,73.521 L 104.455,68.701 Z"/><path d="M 122.437,68.701 C 122.339,69.051 122.211,69.293 122.050,69.429 L 122.050,69.429 C 121.891,69.565 121.655,69.633 121.345,69.633 L 121.345,69.633 L 107.819,69.633 C 107.509,69.633 107.273,69.563 107.112,69.422 L 107.112,69.422 C 106.952,69.282 106.828,69.041 106.741,68.701 L 106.741,68.701 L 106.348,68.701 L 106.348,73.521 L 106.741,73.521 C 106.838,73.177 106.967,72.935 107.127,72.797 L 107.127,72.797 C 107.287,72.658 107.523,72.589 107.833,72.589 L 107.833,72.589 L 112.638,72.589 L 112.638,84.455 C 112.638,84.756 112.567,84.989 112.427,85.154 L 112.427,85.154 C 112.286,85.319 112.046,85.446 111.706,85.533 L 111.706,85.533 L 111.706,85.941 L 117.473,85.941 L 117.473,85.533 C 117.123,85.427 116.880,85.293 116.744,85.132 L 116.744,85.132 C 116.608,84.973 116.540,84.742 116.540,84.442 L 116.540,84.442 L 116.540,72.589 L 121.345,72.589 C 121.656,72.589 121.891,72.658 122.052,72.797 L 122.052,72.797 C 122.211,72.935 122.340,73.177 122.437,73.521 L 122.437,73.521 L 122.830,73.521 L 122.830,68.701 Z"/><path d="M 137.711,69.633 L 137.711,70.041 C 138.070,70.147 138.315,70.278 138.446,70.433 L 138.446,70.433 C 138.577,70.588 138.643,70.816 138.643,71.115 L 138.643,71.115 L 138.643,75.879 L 129.528,75.879 L 129.528,71.115 C 129.528,70.816 129.596,70.585 129.732,70.426 L 129.732,70.426 C 129.868,70.266 130.110,70.138 130.460,70.041 L 130.460,70.041 L 130.460,69.633 L 124.694,69.633 L 124.694,70.041 C 125.043,70.148 125.286,70.279 125.422,70.434 L 125.422,70.434 C 125.558,70.589 125.626,70.817 125.626,71.118 L 125.626,71.118 L 125.626,84.455 C 125.626,84.756 125.555,84.989 125.415,85.154 L 125.415,85.154 C 125.275,85.319 125.034,85.446 124.694,85.533 L 124.694,85.533 L 124.694,85.941 L 130.460,85.941 L 130.460,85.533 C 130.110,85.426 129.868,85.293 129.732,85.132 L 129.732,85.132 C 129.596,84.973 129.528,84.741 129.528,84.441 L 129.528,84.441 L 129.528,78.835 L 138.643,78.835 L 138.643,84.453 C 138.643,84.755 138.572,84.988 138.432,85.153 L 138.432,85.153 C 138.291,85.319 138.051,85.446 137.711,85.533 L 137.711,85.533 L 137.711,85.941 L 143.477,85.941 L 143.477,85.533 C 143.128,85.427 142.885,85.293 142.749,85.132 L 142.749,85.132 C 142.613,84.973 142.545,84.742 142.545,84.442 L 142.545,84.442 L 142.545,71.118 C 142.545,70.816 142.613,70.586 142.749,70.426 L 142.749,70.426 C 142.885,70.266 143.128,70.138 143.477,70.041 L 143.477,70.041 L 143.477,69.633 Z"/><path d="M 162.158,68.701 C 162.061,69.051 161.932,69.293 161.772,69.429 L 161.772,69.429 C 161.612,69.565 161.376,69.633 161.066,69.633 L 161.066,69.633 L 146.331,69.633 L 146.331,70.041 C 146.680,70.148 146.922,70.279 147.058,70.434 L 147.058,70.434 C 147.195,70.589 147.262,70.817 147.262,71.118 L 147.262,71.118 L 147.262,84.455 C 147.262,84.756 147.192,84.989 147.051,85.154 L 147.051,85.154 C 146.911,85.319 146.671,85.446 146.331,85.533 L 146.331,85.533 L 146.331,85.941 L 161.517,85.941 C 161.818,85.941 162.051,86.010 162.216,86.152 L 162.216,86.152 C 162.381,86.292 162.507,86.533 162.595,86.872 L 162.595,86.872 L 163.002,86.872 L 163.002,82.053 L 162.595,82.053 C 162.498,82.407 162.369,82.650 162.209,82.784 L 162.209,82.784 C 162.048,82.918 161.818,82.985 161.517,82.985 L 161.517,82.985 L 151.165,82.985 L 151.165,79.010 L 157.309,79.010 C 157.620,79.010 157.855,79.079 158.015,79.217 L 158.015,79.217 C 158.175,79.356 158.304,79.597 158.401,79.942 L 158.401,79.942 L 158.794,79.942 L 158.794,75.239 L 158.401,75.239 C 158.294,75.588 158.161,75.831 158.001,75.967 L 158.001,75.967 C 157.841,76.103 157.610,76.171 157.309,76.171 L 157.309,76.171 L 151.165,76.171 L 151.165,72.589 L 161.066,72.589 C 161.376,72.589 161.612,72.656 161.772,72.789 L 161.772,72.789 C 161.932,72.924 162.061,73.168 162.158,73.521 L 162.158,73.521 L 162.551,73.521 L 162.551,68.701 Z"/><path d="M 178.072,69.633 L 178.072,70.041 C 178.431,70.148 178.676,70.279 178.807,70.434 L 178.807,70.434 C 178.938,70.589 179.004,70.817 179.004,71.118 L 179.004,71.118 L 179.004,78.966 C 179.004,79.878 178.926,80.578 178.771,81.063 L 178.771,81.063 C 178.616,81.548 178.343,81.946 177.956,82.257 L 177.956,82.257 C 177.160,82.888 176.009,83.203 174.505,83.203 L 174.505,83.203 C 173.000,83.203 171.850,82.888 171.054,82.257 L 171.054,82.257 C 170.656,81.946 170.377,81.548 170.217,81.063 L 170.217,81.063 C 170.056,80.578 169.976,79.878 169.976,78.966 L 169.976,78.966 L 169.976,71.118 C 169.976,70.817 170.043,70.587 170.177,70.427 L 170.177,70.427 C 170.310,70.266 170.554,70.138 170.908,70.041 L 170.908,70.041 L 170.908,69.633 L 165.143,69.633 L 165.143,70.041 C 165.492,70.148 165.734,70.279 165.870,70.434 L 165.870,70.434 C 166.007,70.589 166.074,70.817 166.074,71.118 L 166.074,71.118 L 166.074,79.753 C 166.074,81.063 166.249,82.155 166.598,83.029 L 166.598,83.029 C 166.977,83.980 167.681,84.713 168.710,85.227 L 168.710,85.227 C 170.137,85.936 172.010,86.290 174.330,86.290 L 174.330,86.290 C 177.795,86.290 180.154,85.557 181.406,84.091 L 181.406,84.091 C 182.183,83.169 182.571,81.723 182.571,79.753 L 182.571,79.753 L 182.571,71.118 C 182.571,70.817 182.639,70.587 182.775,70.427 L 182.775,70.427 C 182.911,70.266 183.153,70.138 183.503,70.041 L 183.503,70.041 L 183.503,69.633 Z"/><path d="M 188.279,67.888 C 187.123,68.986 186.546,70.375 186.546,72.055 L 186.546,72.055 C 186.546,73.075 186.774,73.979 187.230,74.765 L 187.230,74.765 C 187.735,75.640 188.429,76.296 189.313,76.733 L 189.313,76.733 C 189.933,77.043 190.555,77.269 191.176,77.410 L 191.176,77.410 C 191.797,77.551 192.860,77.699 194.365,77.855 L 194.365,77.855 L 196.607,78.088 C 198.112,78.252 199.112,78.431 199.607,78.625 L 199.607,78.625 C 200.315,78.906 200.669,79.376 200.669,80.034 L 200.669,80.034 C 200.669,80.470 200.519,80.890 200.218,81.292 L 200.218,81.292 C 199.917,81.694 199.514,82.016 199.009,82.258 L 199.009,82.258 C 198.097,82.694 196.995,82.912 195.704,82.912 L 195.704,82.912 C 194.520,82.912 193.268,82.708 191.948,82.301 L 191.948,82.301 C 190.628,81.893 189.653,81.407 189.021,80.844 L 189.021,80.844 C 188.604,80.475 188.395,80.073 188.395,79.636 L 188.395,79.636 L 188.395,79.447 L 187.973,79.243 L 185.818,84.121 L 186.240,84.339 C 186.511,84.126 186.711,84.019 186.837,84.019 L 186.837,84.019 C 186.944,84.019 187.269,84.144 187.813,84.397 L 187.813,84.397 C 190.375,85.659 192.972,86.290 195.603,86.290 L 195.603,86.290 C 197.068,86.290 198.442,86.110 199.723,85.751 L 199.723,85.751 C 201.441,85.277 202.708,84.544 203.523,83.555 L 203.523,83.555 C 204.426,82.469 204.877,81.227 204.877,79.830 L 204.877,79.830 C 204.877,78.947 204.686,78.118 204.302,77.342 L 204.302,77.342 C 203.919,76.567 203.397,75.941 202.737,75.466 L 202.737,75.466 C 202.087,75.010 201.342,74.656 200.502,74.403 L 200.502,74.403 C 199.663,74.151 198.563,73.952 197.204,73.807 L 197.204,73.807 L 194.918,73.574 C 193.384,73.419 192.385,73.273 191.919,73.138 L 191.919,73.138 C 191.016,72.866 190.565,72.358 190.565,71.610 L 190.565,71.610 C 190.565,71.155 190.742,70.733 191.096,70.345 L 191.096,70.345 C 191.451,69.958 191.914,69.666 192.486,69.472 L 192.486,69.472 C 193.273,69.220 194.181,69.094 195.209,69.094 L 195.209,69.094 C 197.539,69.094 199.568,69.697 201.296,70.900 L 201.296,70.900 C 201.858,71.278 202.140,71.633 202.140,71.962 L 202.140,71.962 C 202.140,72.021 202.135,72.099 202.125,72.196 L 202.125,72.196 L 202.533,72.428 L 204.907,67.749 L 204.499,67.529 C 204.227,67.754 203.989,67.866 203.786,67.866 L 203.786,67.866 C 203.659,67.866 203.315,67.754 202.752,67.529 L 202.752,67.529 C 201.112,66.838 199.743,66.362 198.646,66.104 L 198.646,66.104 C 197.548,65.846 196.365,65.717 195.093,65.717 L 195.093,65.717 C 192.065,65.717 189.793,66.440 188.279,67.888"/></g></g></svg></a>
+    <nav aria-label="Glavna navigacija">
+      <a class="opt" href="#istaknuto">Istaknuto</a>
+      <a class="opt" href="#klijenti">Za koga radimo</a>
+      <a class="opt" href="#portfolio">Portfolio</a>
+      <a class="opt" href="#djelatnosti">Djelatnosti</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="plate">
+        <svg class="torch" viewBox="88.4 -0.6 28.2 58.8" aria-hidden="true"><defs><linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--g1)"/><stop offset="1" stop-color="var(--g3)"/></linearGradient></defs><g fill="url(#tg)"><path d="M 98.043,9.251 C 96.241,12.774 91.260,15.650 90.625,23.996 L 90.625,23.996 C 89.989,32.342 101.116,38.741 101.116,38.741 L 101.116,38.741 C 101.116,38.741 95.553,31.229 97.566,25.943 L 97.566,25.943 C 99.579,20.657 100.268,22.141 100.534,15.557 L 100.534,15.557 C 108.058,19.637 104.164,29.565 104.164,29.565 L 104.164,29.565 C 104.164,29.565 107.475,29.282 108.747,25.758 L 108.747,25.758 C 109.807,29.931 105.885,38.185 105.885,38.185 L 105.885,38.185 C 105.885,38.185 113.728,32.250 114.258,22.327 L 114.258,22.327 C 114.788,12.404 110.973,8.138 110.973,8.138 L 110.973,8.138 C 110.973,8.138 109.701,15.928 107.158,15.093 L 107.158,15.093 C 107.051,3.223 99.209,-0.000 99.209,-0.000 L 99.209,-0.000 C 99.209,-0.000 99.845,5.726 98.043,9.251"/><path d="M 89.406,41.301 C 89.406,43.069 90.063,44.503 91.831,44.503 L 113.076,44.503 C 114.843,44.503 115.501,43.069 115.501,41.301 C 115.501,40.650 115.411,40.044 115.209,39.539 L 89.578,39.539 C 89.443,40.044 89.406,40.650 89.406,41.301"/><path d="M 89.613,45.301 C 89.161,45.869 88.888,46.587 88.888,47.370 L 88.888,47.370 C 88.888,49.208 90.378,50.699 92.216,50.699 L 92.216,50.699 L 112.690,50.699 C 114.528,50.699 116.018,49.208 116.018,47.370 L 116.018,47.370 C 116.018,46.587 115.746,45.869 115.293,45.301 L 115.293,45.301 Z"/><path d="M 110.796,51.496 L 94.111,51.496 L 95.275,57.640 L 109.632,57.640 Z"/></g></svg>
+        <div class="caps">Obrt za proizvodnju i usluge · Požega</div>
+        <h1>Dizajn, video, tekst i web za sport, kulturu i poslovanje</h1>
+        <div class="rule" aria-hidden="true"><i></i></div>
+        <p class="lede">Prometheus vodi posao od ideje do gotovog proizvoda: od prve skice medalje do dodjele, od sirove snimke do objavljenog videa, od rukopisa do lektoriranog kataloga u tisku. Sve na jednom mjestu i s jednom osobom za dogovor.</p>
+        <div class="cta">
+          <a class="btn" href="#kontakt">Zatražite ponudu</a>
+          <a class="btn ghost" href="#istaknuto">Pogledajte usluge</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="sec" id="istaknuto">
+      <div class="sec-head">
+        <div><div class="caps">Istaknuto</div><h2>Istaknute djelatnosti</h2></div>
+        <p>Djelatnosti u kojima obrt ima najviše iskustva. Svaku vodimo od dogovora do isporuke.</p>
+      </div>
+      <div class="spec">
+        <article>
+          <span class="tag">Sport · dizajn i proizvodnja</span>
+          <h3>Personalizirane sportske medalje</h3>
+          <p>Medalje s grbom kluba, nazivom natjecanja i godinom, izrađene za vaš turnir umjesto kataloških. Za klubove, saveze, škole i organizatore.</p>
+          <ul><li>Dizajn</li><li>Izrada</li><li>Tiskane vrpce</li><li>Dostava</li></ul>
+        </article>
+        <article>
+          <span class="tag">Video · postprodukcija</span>
+          <h3>Postprodukcija sportskog videa</h3>
+          <p>Sažeci utakmica, golovi i klupski video sadržaji iz vašeg sirovog materijala, spremni za društvene mreže i televiziju. Radimo i kao vanjski suradnik produkcija.</p>
+          <ul><li>Montaža</li><li>Korekcija boje</li><li>Grafike rezultata</li><li>Formati za mreže</li></ul>
+        </article>
+        <article>
+          <span class="tag">Tekst · priprema za objavu</span>
+          <h3>Lektura, korektura i priprema za tisak</h3>
+          <p>Lekturu radi profesor hrvatskoga jezika i književnosti. Tekst dobivate jezično ispravan, uređen i pripremljen za tisak ili objavu na webu.</p>
+          <ul><li>Lektura</li><li>Korektura</li><li>Katalozi i publikacije</li><li>Natječajna dokumentacija</li></ul>
+        </article>
+        <article>
+          <span class="tag">Baština · digitalna rješenja</span>
+          <h3>3D rekonstrukcije i animacije</h3>
+          <p>Povijesni prostori i predmeti kao 3D modeli koje posjetitelji i učenici razgledavaju u pregledniku, sa svih strana, te animacije i filmovi za izložbe, obljetnice i prezentacije.</p>
+          <ul><li>3D rekonstrukcije</li><li>Animacije</li><li>Virtualne izložbe</li><li>Edukativna predavanja</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="sec" id="klijenti">
+      <div class="sec-head">
+        <div><div class="caps">Za koga radimo</div><h2>Jedan partner za više poslova</h2></div>
+        <p>Usluge se nadovezuju jedna na drugu. Klub koji naruči medalje često treba i video s turnira, a muzej koji priprema katalog često treba i lekturu i web izložbu. Zato ih radimo zajedno.</p>
+      </div>
+      <div class="clients">
+        <div class="client">
+          <h3>Sportski klubovi i savezi</h3>
+          <p>Sve što klub treba za natjecanje i nastup u javnosti.</p>
+          <ol>
+            <li>Medalje za turnire<span>74.12</span></li>
+            <li>Sažeci utakmica<span>59.12</span></li>
+            <li>Grafike za društvene mreže<span>74.12</span></li>
+            <li>Organizacija natjecanja<span>93.19</span></li>
+            <li>Klupska web stranica<span>62.10</span></li>
+          </ol>
+        </div>
+        <div class="client">
+          <h3>Kulturne i obrazovne ustanove</h3>
+          <p>Muzeji, škole, knjižnice i udruge koje izlažu, objavljuju i poučavaju.</p>
+          <ol>
+            <li>Lektura kataloga<span>18.13</span></li>
+            <li>Priprema za tisak<span>18.13</span></li>
+            <li>3D rekonstrukcije<span>62.10</span></li>
+            <li>Virtualne izložbe<span>63.91</span></li>
+            <li>Promotivni video<span>59.11</span></li>
+          </ol>
+        </div>
+        <div class="client">
+          <h3>Tvrtke, obrti i javna uprava</h3>
+          <p>Poslovni subjekti koji žele uredne dokumente i prepoznatljiv nastup.</p>
+          <ol>
+            <li>Lektura dokumenata<span>82.10</span></li>
+            <li>Vizualni identitet<span>74.12</span></li>
+            <li>Promidžba i oglasi<span>73.11</span></li>
+            <li>Odnosi s javnošću<span>73.30</span></li>
+            <li>Web i održavanje<span>63.10</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="sec" id="portfolio">
+      <div class="sec-head">
+        <div><div class="caps">Portfolio</div><h2>Izvedeni radovi</h2></div>
+        <p>Izbor radova za sportske saveze i klubove iz Požeško-slavonske županije. Medalje su dizajnirane i izrađene po narudžbi, a video, web i grafike nastaju svaki tjedan tijekom sezone.</p>
+      </div>
+      <div class="medals">
+        <figure class="m-side">
+          <img src="img/medalje-nspsz.webp" alt="Zlatna, srebrna i brončana medalja Nogometnog saveza Požeško-slavonske županije u obliku grba, na plavim vrpcama" width="580" height="543" loading="lazy">
+          <figcaption>Nogometni savez PSŽ</figcaption>
+        </figure>
+        <figure class="m-center">
+          <figcaption><span class="tag">Personalizirane medalje · 3D tekstura</span><p>Medalje izrađujemo po narudžbi, u obliku grba ili prema vašem motivu, s reljefnom 3D teksturom, u zlatu, srebru i bronci ili u boji po želji naručitelja.</p></figcaption>
+        </figure>
+        <figure class="m-side">
+          <img src="img/medalje-pss.webp" alt="Zlatna, srebrna i brončana okrugla medalja Požeškog sportskog saveza na crvenim vrpcama" width="565" height="563" loading="lazy">
+          <figcaption>Požeški sportski savez</figcaption>
+        </figure>
+      </div>
+      <div class="works">
+        <a class="work" href="https://www.youtube.com/@NogometniSavezPSZ" target="_blank" rel="noopener">
+          <span class="tag">Video · postprodukcija</span>
+          <h3>Sažeci utakmica NS PSŽ</h3>
+          <p>Montaža sažetaka županijskih liga za YouTube kanal Nogometnog saveza PSŽ.</p>
+          <span class="go">YouTube kanal ↗</span>
+        </a>
+        <a class="work" href="https://nkslavonija-pozega.hr" target="_blank" rel="noopener">
+          <span class="tag">Web · izrada i održavanje</span>
+          <h3>Web NK Slavonija Požega</h3>
+          <p>Klupska web stranica s tablicom lige i karticama prethodne i sljedeće utakmice.</p>
+          <span class="go">nkslavonija-pozega.hr ↗</span>
+        </a>
+        <div class="work">
+          <span class="tag">Dizajn · društvene mreže</span>
+          <h3>Grafike NK Slavonija</h3>
+          <p>Najave, rezultati i grafike za klupske društvene mreže kroz cijelu sezonu.</p>
+          <span class="go links"><a href="https://www.instagram.com/slavonija.nk/" target="_blank" rel="noopener">Instagram ↗</a><a href="https://www.facebook.com/Slavonija.Pozega/" target="_blank" rel="noopener">Facebook ↗</a></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="djelatnosti">
+      <div class="sec-head">
+        <div><div class="caps">Djelatnosti</div><h2>Registrirane djelatnosti obrta</h2></div>
+        <p>Sve usluge obrt obavlja u okviru djelatnosti upisanih u Obrtni registar. Grupirali smo ih u šest područja prema Nacionalnoj klasifikaciji djelatnosti (NKD 2025).</p>
+      </div>
+      <div class="acts">
+        <div class="act"><div class="codes"><span>74.12</span><span>18.13</span></div><h3>Grafički dizajn i priprema za tisak</h3><p>Vizualni identitet, plakati, grafike, katalozi i publikacije, lektura i korektura tekstova za objavu.</p></div>
+        <div class="act"><div class="codes"><span>59.11</span><span>59.12</span></div><h3>Video produkcija i postprodukcija</h3><p>Promotivni i dokumentarni video, montaža, korekcija boje, grafike i zvuk.</p></div>
+        <div class="act"><div class="codes"><span>73.11</span><span>73.12</span><span>73.30</span></div><h3>Promidžba i odnosi s javnošću</h3><p>Kampanje, oglašavanje u medijima i na mrežama, priopćenja i komunikacija s javnošću.</p></div>
+        <div class="act"><div class="codes"><span>62.10</span><span>62.20</span><span>62.90</span><span>63.10</span><span>63.91</span><span>63.92</span></div><h3>Web i digitalna rješenja</h3><p>Web stranice i portali, 3D modeli i virtualne izložbe, hosting, održavanje i savjetovanje.</p></div>
+        <div class="act"><div class="codes"><span>85.51</span><span>93.19</span></div><h3>Sport i rekreacija</h3><p>Sportska poduka i priprema te organizacija i vođenje sportskih natjecanja.</p></div>
+        <div class="act"><div class="codes"><span>82.10</span></div><h3>Uredske i administrativne usluge</h3><p>Priprema i uređivanje dokumenata, natječajne dokumentacije i poslovne korespondencije.</p></div>
+      </div>
+      <p class="src">Izvor: Obrtni registar, MBO 98721933.</p>
+    </section>
+
+    <section class="sec" aria-labelledby="proces-h">
+      <div class="sec-head">
+        <div><div class="caps">Suradnja</div><h2 id="proces-h">Od upita do isporuke</h2></div>
+        <p>Svaka suradnja prolazi kroz četiri jednostavna koraka.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Upit</h3><p>Opišete posao, pošaljete tekst ili materijal i navedete željeni rok.</p></li>
+        <li><h3>Ponuda</h3><p>Dobivate pisanu ponudu s cijenom, opsegom i rokom izrade.</p></li>
+        <li><h3>Izrada</h3><p>Nakon prihvaćanja ponude radimo posao i šaljemo međuverzije na odobrenje.</p></li>
+        <li><h3>Isporuka</h3><p>Predajemo gotov proizvod ili datoteke i izdajemo račun.</p></li>
+      </ol>
+    </section>
+
+    <section class="sec" aria-labelledby="o-h">
+      <div class="about">
+        <div>
+          <div class="caps">O obrtu</div>
+          <h2 id="o-h">Prometheus</h2>
+          <p style="margin-top:22px">Prometheus je obrt za proizvodnju i usluge sa sjedištem u Požegi, osnovan 2024. godine. Vlasnik je Matej Peharda, profesor hrvatskoga jezika i književnosti te povijesti i nogometni trener s licencom HNS-a.</p>
+          <p>Obrt je nastao iz ljubavi prema poslu i sportu. Vodi ga jedna ideja: poticati izvrsnost na svakoj razini, od pristupa poslu i prvoga vizualnog dojma do jednako visoke kvalitete u svakom koraku izrade. Ime je uzeto od mitskog Prometeja, koji je ljudima donio vatru i znanje.</p>
+        </div>
+        <dl class="facts">
+          <div><dt>Naziv</dt><dd>Prometheus, obrt za proizvodnju i usluge</dd></div>
+          <div><dt>Vlasnik</dt><dd>Matej Peharda</dd></div>
+          <div><dt>Osnovan</dt><dd>5. veljače 2024.</dd></div>
+          <div><dt>Sjedište</dt><dd>Vilima Korajca 17, 34000 Požega</dd></div>
+          <div><dt>Stručnost</dt><dd>Profesor hrvatskoga jezika i književnosti te povijesti; trener s licencom HNS-a</dd></div>
+          <div><dt>Područje</dt><dd>Požeško-slavonska županija i cijela Hrvatska</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="sec" id="kontakt" aria-labelledby="k-h">
+      <div class="sec-head">
+        <div><div class="caps">Kontakt</div><h2 id="k-h">Pošaljite upit</h2></div>
+        <p>Napišite što trebate i do kada. Ponudu šaljemo e-mailom.</p>
+      </div>
+      <div class="contact-grid">
+        <div>
+          <a class="big" id="mail" href="mailto:prometheus.agency@outlook.com">prometheus.agency@outlook.com</a><br>
+          <a class="big" href="tel:+385997532478">+385 99 753 2478</a>
+          <div class="row">
+            <a class="btn" href="mailto:prometheus.agency@outlook.com?subject=Upit%20za%20ponudu">Napišite e-mail</a>
+            <button class="btn ghost" type="button" id="copy">Kopiraj e-mail adresu</button>
+          </div>
+        </div>
+        <dl class="facts">
+          <div><dt>Adresa</dt><dd>Vilima Korajca 17, 34000 Požega</dd></div>
+          <div><dt>OIB</dt><dd>95097732848</dd></div>
+          <div><dt>MBO</dt><dd>98721933</dd></div>
+          <div><dt>Prigovori</dt><dd>Pisani prigovor možete poslati e-mailom ili poštom na adresu sjedišta. Odgovaramo u roku od 15 dana od primitka.</dd></div>
+        </dl>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b>Prometheus, obrt za proizvodnju i usluge, vl. Matej Peharda</b>, Vilima Korajca 17, 34000 Požega</span>
+    <span>OIB 95097732848 · MBO 98721933 · Upisan u Obrtni registar, Upravni odjel za gospodarstvo, Odsjek za poduzetništvo, turizam i promet Požega</span>
+    <span>Privatnost: stranica ne koristi kolačiće ni analitiku i ne prikuplja osobne podatke. Podatke iz vaših e-poruka i poziva koristimo samo za odgovor na upit i izradu ponude.</span>
+    <span>© 2026 Prometheus</span>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" hidden>Adresa kopirana</div>
+
+<script>
+(function(){
+  var btn=document.getElementById('copy'), toast=document.getElementById('toast'), addr='prometheus.agency@outlook.com';
+  function show(t){toast.textContent=t; toast.hidden=false; clearTimeout(show.t); show.t=setTimeout(function(){toast.hidden=true},1800)}
+  function fallback(){var r=document.createRange(); r.selectNodeContents(document.getElementById('mail')); var s=getSelection(); s.removeAllRanges(); s.addRange(r); show('Adresa označena, kopirajte je')}
+  btn.addEventListener('click',function(){
+    try{ navigator.clipboard.writeText(addr).then(function(){show('Adresa kopirana')},fallback) }catch(e){ fallback() }
+  });
+})();
+</script>
+
+</body>
+</html>
